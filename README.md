@@ -1,2 +1,2 @@
-# vadim.github.io
-### [Семинар 3-4 (Деловая игра)](https://github.com/NAF-FLY/vadim.github.io/wiki/Деловая-игра-(Семинар-3-4))
+#### Студент группы ИДБ-18-07 Еремин И.А.
+#### [Семинар 3-4 (Деловая игра)](https://github.com/NAF-FLY/vadim.github.io/wiki/Деловая-игра-(Семинар-3-4))
