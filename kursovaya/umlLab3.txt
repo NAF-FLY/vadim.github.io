@@ -1,0 +1,81 @@
+@startuml
+skinparam monochrome true
+
+actor Кассир as user
+participant "Моб. приложение" as cli
+participant "Сервер" as serv
+database "База данных" as base
+
+user -> cli: Оформить заказ
+activate cli
+cli -> cli : Cоздать локальный документ
+activate cli
+cli --> user
+deactivate cli
+deactivate cli
+
+user -> cli: Открыть список заказов
+activate cli
+cli -> serv: Получить список заказов
+activate serv
+serv -> base: Получить заказы
+activate base
+base --> serv
+deactivate base
+serv --> cli
+deactivate serv
+cli -> cli: Отобразить список заказов
+activate cli
+cli --> user
+deactivate cli
+deactivate cli
+
+user -> cli: Выбрать заказ
+activate cli
+cli -> cli : Внести ID, ФИО, адрес в локальный документ
+activate cli
+cli --> user
+deactivate cli
+deactivate cli
+
+user -> cli: Открыть список доступных блюд
+activate cli
+cli -> serv: Получить блюдо из заказа выбранного клиента
+activate serv
+serv -> base: Получить список блюд из заказа клиента
+activate serv
+base --> serv
+deactivate base
+serv --> cli
+deactivate serv
+cli -> cli: Отобразить список блюд
+activate cli
+cli --> user
+deactivate cli
+deactivate cli
+
+user -> cli: Выбрать блюдо
+activate cli
+cli -> cli: Внести блюдо в локальный документ
+activate cli
+deactivate cli
+cli -> serv: Получить стоимость
+activate serv
+serv -> base: Получить цену
+activate base
+base --> serv
+deactivate base
+
+deactivate serv
+serv -> serv: Рассчитать заказ
+activate serv
+serv --> cli
+deactivate serv
+deactivate serv
+cli -> cli: Внести цену и сумму заказа в локальный документ
+activate cli
+deactivate cli
+cli --> user
+deactivate cli
+
+@enduml
