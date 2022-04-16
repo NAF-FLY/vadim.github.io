@@ -1,0 +1,25 @@
+@startuml
+skinparam component {
+BackgroundColor White
+ArrowColor Black
+BorderColor Black
+}
+
+skinparam interface {
+BackgroundColor White
+ArrowColor Black
+BorderColor Black
+}
+component [БД] as DB
+component [ОС android] as DA
+component [Мобильное приложение] as APP
+
+() "LAN" as L
+() "LAN" as L2
+
+
+DA - L2
+L2 - APP
+APP - L
+L - DB
+@enduml
